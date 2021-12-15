@@ -1,0 +1,89 @@
+*
+{
+    box-sizing: display-box;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    padding-top: 67px;
+}
+
+/*CSS do header */
+
+header
+{
+    position: fixed;
+    width: 100%;
+    height: 67px;
+    left: 0px;
+    top: 0px;
+    background: #C3CFD9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1
+{
+    font-family: Roboto;
+    font-size: 34px;
+    line-height: 40px;
+    color: #E8833A;
+}
+
+/*CSS do main*/
+
+.main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 23px;
+    padding-block: 40px;
+}
+
+.movies-container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movies-container h3
+{
+    font-family: Roboto;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #293845;
+}
+
+.movies-list
+{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 19px 30px;
+}
+
+.movie-card
+{
+    width: 145px;
+    height: 209px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-card img
+{
+    width: 129px;
+    height: 193px;
+}
