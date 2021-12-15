@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Card from './MovieCard';
 
 const MovieScreen = () =>
 {
@@ -10,7 +12,6 @@ const MovieScreen = () =>
         axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/movies`)
         .then(response => {
         setMovies([...response.data]);
-        console.log(response.data);
         })
     }
 
@@ -18,24 +19,17 @@ const MovieScreen = () =>
         getMovies();
     }, [])
 
-    const MovieCard = ({movieData}) => 
-    {
-        return(
-            <div className='movie-card'>
-                <img src={movieData.posterURL} />
-            </div>
-        );
-    }
-
     return(
-        <div className='movies-container'>
-            <h3>Selecione o filme</h3>
+        <div className='container'>
+            <h3 className='container-title'>Selecione o filme</h3>
             <div className='movies-list'>
             {
                 movies.map((movie, i) => 
                 {
                     return (
-                        <MovieCard key={i} movieData={movie} />
+                        <Link to={`/sessoes/${movie.id}`}>
+                            <Card key={i} movieData={movie} />
+                        </Link>
                 );
                 })
             }

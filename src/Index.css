@@ -8,6 +8,7 @@
 body
 {
     padding-top: 67px;
+    padding-bottom: 147px;
 }
 
 /*CSS do header */
@@ -33,6 +34,47 @@ header h1
     color: #E8833A;
 }
 
+/*CSS do Footer*/
+
+footer
+{
+    position: fixed;
+    width: 100%;
+    height: 117px;
+    left: 0px;
+    bottom: 0px;
+    background: #DFE6ED;
+    border: 1px solid #9EADBA;
+    display: flex;
+    align-items: center;
+    padding-inline: 10px;
+    padding-block: 14px;
+    gap: 14px;
+}
+
+footer .movie-card
+{
+    width: 64px;
+    height: 89px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+footer .movie-card img
+{
+    width: 48px;
+    height: 72px;
+}
+
+footer h3
+{
+    font-family: Roboto;
+    font-size: 26px;
+    line-height: 30px;
+    color: #293845;
+}
+
 /*CSS do main*/
 
 .main
@@ -44,7 +86,8 @@ header h1
     padding-block: 40px;
 }
 
-.movies-container
+/*CSS da lista de filmes */
+.container
 {
     width: 100%;
     display: flex;
@@ -52,7 +95,7 @@ header h1
     align-items: center;
 }
 
-.movies-container h3
+.container-title
 {
     font-family: Roboto;
     font-size: 24px;
@@ -86,4 +129,59 @@ header h1
 {
     width: 129px;
     height: 193px;
+}
+
+/*CSS da tela da seleção de horários*/
+
+.movie-seasons-container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seasons-list
+{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+.seasons-list span
+{
+    margin-right: auto;
+    font-family: Roboto;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.02em;
+    color: #293845;
+}
+
+.seasons-list ul
+{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.seasons-list ul button
+{
+    width: 83px;
+    height: 43px;
+    background: #E8833A;
+    border-radius: 3px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 0;
+    border: 0;
 }
