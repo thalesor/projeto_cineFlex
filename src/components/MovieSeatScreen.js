@@ -28,11 +28,31 @@ const MovieSeatScreen = () =>
         <>
         <div className='container'>
             <h3 className='container-title'>Selecione o(s) assento(s)</h3>
+            <div className='seats-list'>
+            {
+                seatsData.seats ?
+                seatsData.seats.map((seat, i) => 
+                {
+                    const buttonType = seat.isAvailable ? 'available' : 'unavailable';
+                    return (
+                        <button className={buttonType}>{seat.name}</button>
+                    );
+                })
+            :
+            'carregando assentos'
+            }
+            </div>
+            <form>
+               <div className='form-group'><span>Nome do comprador:</span><input type="text" onChange={'a'} placeholder='Digite seu nome...' required/></div> 
+               <div className='form-group'><span>CPF do comprador</span><input type="text" onChange={'a'} placeholder='Digite seu CPF...' required/></div> 
+            
+                <input type="submit" value='Reservar assento(s)'></input>
+            </form>
         </div>
         <Footer movieData={seatsData}/>
         </>
         :
-        'Carregando a porra toda'
+        'Carregando a página'
     );
 }
 

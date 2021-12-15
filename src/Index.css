@@ -185,3 +185,98 @@ footer h3
     outline: 0;
     border: 0;
 }
+
+/*CSS da tela de seleção de assentos*/
+
+.seats-list
+{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.seats-list button
+{
+    width: 26px;
+    height: 26px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    color: #000000;
+}
+
+.seats-list button.available
+{
+    background: #C3CFD9;
+    border: 1px solid #808F9D;
+}
+
+.seats-list button.unavailable
+{
+    background: #FBE192;
+    border: 1px solid #F7C52B;
+}
+
+.seats-list button.selected
+{
+    background: #8DD7CF;
+    border: 1px solid #45BDB0;
+}
+
+form
+{
+    margin-top: 111px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group span
+{
+    margin-right: auto;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 21px;
+    color: #293845;
+}
+
+.form-group input[type="text"]
+{
+    width: 327px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    box-sizing: border-box;
+    border-radius: 3px;
+    outline: 0;
+}
+
+form input[type="submit"]
+{
+    margin-top: 57px;
+    width: 225px;
+    height: 42px;
+    background: #E8833A;
+    border-radius: 3px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    outline: 0;
+    border: 0;
+}
+
