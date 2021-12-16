@@ -11,6 +11,10 @@ body
     padding-bottom: 147px;
 }
 
+ul {
+    list-style-type: none;
+  }
+
 /*CSS do header */
 
 header
@@ -261,7 +265,7 @@ form
     outline: 0;
 }
 
-form input[type="submit"]
+form a
 {
     margin-top: 57px;
     width: 225px;
@@ -278,5 +282,72 @@ form input[type="submit"]
     color: #FFFFFF;
     outline: 0;
     border: 0;
+}
+
+/*CSS da tela de sucesso */
+
+.text-green
+{
+    color: #247A6B;
+}
+
+.success-container
+{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.success-container a
+{
+    margin-top: 62px;
+    width: 225px;
+    height: 42px;
+    background: #E8833A;
+    border-radius: 3px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    outline: 0;
+    border: 0;
+    align-self: center;
+}
+
+.success-container .movie-card
+{
+    align-self: center;
+}
+
+.success-block
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.success-block strong
+{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #293845;
+}
+
+.success-block span
+{
+    font-family: Roboto;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    color: #293845;
 }
 
