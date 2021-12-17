@@ -12,7 +12,7 @@ const MovieScreen = () =>
     {
         axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/movies`)
         .then(response => {
-        setMovies([...response.data]);
+        setMovies(response.data);
         })
     }
 
@@ -29,7 +29,7 @@ const MovieScreen = () =>
                 movies.map((movie, i) => 
                 {
                     return (
-                        <Link to={`/sessoes/${movie.id}`}>
+                        <Link key={i} to={`/sessoes/${movie.id}`}>
                             <Card movieData={movie} />
                         </Link>
                 );

@@ -4,7 +4,7 @@ const LoadingScreen = () =>
     {
         return(
             <div className='loading-container'>
-                <img src={loading} />
+                <img alt='carregando...' src={loading} />
             </div>
         );
     }

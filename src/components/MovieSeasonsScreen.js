@@ -47,9 +47,9 @@ const MovieSeasonsScreen = () =>
                                 {
                                     return (
                                         <>
-                                            <Link to={`/assentos/${time.id}`}>
+                                            <li key={i}><Link to={`/assentos/${time.id}`}>
                                                 <button>{time.name}</button>
-                                            </Link>
+                                            </Link></li>
                                         </>
                                 );
                                 })

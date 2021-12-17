@@ -7,7 +7,7 @@ const SuccessScreen = () =>
         const { state } = useLocation();
         const { orderData } = state;
         const navigate = useNavigate();
-
+        orderData.cpf = orderData.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
         console.log(orderData)
         return(
             <div className='container'>
