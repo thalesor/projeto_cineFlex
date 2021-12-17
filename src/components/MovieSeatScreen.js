@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Snackbar from "./Snackbar/Snackbar";
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Footer from './Footer';
+import Loading from './LoadingScreen';
 
 const MovieSeatScreen = () =>
 {
@@ -9,9 +11,11 @@ const MovieSeatScreen = () =>
     const [seatsData,setSeatsData] = useState({});
     const [seatsList, setSeatsList] = useState([]);
     const [buyerName, setBuyerName] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
+    const snackbarRef = useRef(null);
     const [buyerCPF, setBuyerCPF] = useState('');
     let navigate = useNavigate();
-
+    
     const SeatButton = ({type, name, isAvailable}) =>
     {
         return (
@@ -23,8 +27,14 @@ const MovieSeatScreen = () =>
         );
     }
 
-    const onInsertOrder = () =>
+    const displayError = (message) =>
     {
+         setErrorMsg(message);
+         snackbarRef.current.show();
+    }
+
+    const onInsertOrder = (event) => {
+        event.preventDefault();
         const selected = seatsList.filter(seat => seat.selected);
         if(!selected.length)
         alert('Precisa selecionar pelo menos um assento!');
@@ -41,15 +51,17 @@ const MovieSeatScreen = () =>
             orderData.seats = [];
             selected.forEach(s=> orderData.ids.push(s.id));
             selected.forEach(s=> orderData.seats.push(s.name));
-            navigate("/success", { state: { orderData: orderData } });
-            /*
-            axios.post(`https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many`, )
-        .then(response => {
-            console.log(response.data);
-        })
-        */
+            axios.post(`https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many`, 
+            {
+                ids:  orderData.ids,
+                name: orderData.buyer,
+                cpf:  orderData.cpf
+            })
+            .then(response => {
+                navigate("/success", { state: { orderData: orderData } }); 
+            }).catch(() => displayError("Erro no servidor ao tentar fazer o pedido!"));
         }
-    }
+      };
 
     const onUpdateBuyerName = (evt) =>
     {
@@ -109,20 +121,23 @@ const MovieSeatScreen = () =>
                     );
                 })
             :
-            'carregando assentos'
+            <Loading />
             }
             </ul>
-            <form>
+            <form onSubmit={onInsertOrder}>
                <div className='form-group'><span>Nome do comprador:</span><input type="text" onChange={onUpdateBuyerName} placeholder='Digite seu nome...' required/></div> 
                <div className='form-group'><span>CPF do comprador</span><input type="text" onChange={onUpdateBuyerCPF} placeholder='Digite seu CPF...' required/></div> 
-            
-                <a onClick={()=> onInsertOrder()}>Reservar assento(s)</a>
+                <button >Reservar assento(s)</button>
             </form>
         </div>
         <Footer movieData={seatsData}/>
+        <Snackbar
+           ref={snackbarRef}
+           message={errorMsg}
+           />
         </>
         :
-        'Carregando a página'
+        <Loading />
     );
 }
 

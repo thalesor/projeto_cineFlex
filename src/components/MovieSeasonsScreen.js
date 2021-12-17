@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Footer from './Footer';
+import Loading from './LoadingScreen';
 
 const MovieSeasonsScreen = () =>
 {
@@ -64,7 +65,7 @@ const MovieSeasonsScreen = () =>
         <Footer movieData={season}/>
         </>
         :
-        'Carregando a porra toda'
+        <Loading />
     );
 }
 

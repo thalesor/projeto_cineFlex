@@ -8,7 +8,7 @@
 body
 {
     padding-top: 67px;
-    padding-bottom: 147px;
+    
 }
 
 ul {
@@ -20,6 +20,7 @@ ul {
 header
 {
     position: fixed;
+    z-index: 2;
     width: 100%;
     height: 67px;
     left: 0px;
@@ -152,6 +153,7 @@ footer h3
     display: flex;
     flex-direction: column;
     gap: 23px;
+    padding-bottom: 147px;
 }
 
 .seasons-list span
@@ -183,9 +185,6 @@ footer h3
     line-height: 21px;
     letter-spacing: 0.02em;
     color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     outline: 0;
     border: 0;
 }
@@ -236,6 +235,7 @@ form
     align-items: center;
     flex-direction: column;
     gap: 8px;
+    padding-bottom: 147px;
 }
 
 .form-group
@@ -265,7 +265,7 @@ form
     outline: 0;
 }
 
-form a
+form button
 {
     margin-top: 57px;
     width: 225px;
@@ -349,5 +349,21 @@ form a
     line-height: 26px;
     letter-spacing: 0.04em;
     color: #293845;
+}
+
+/*CSS da tela de Loading*/
+
+.loading-container
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.loading-container img
+{
+    margin-top: 50%;
 }
 
