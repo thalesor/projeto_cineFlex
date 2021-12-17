@@ -246,9 +246,57 @@ footer h3
     border: 1px solid #45BDB0;
 }
 
+.legends-container
+{
+    margin-top: 25px;
+    padding-inline: 56px;
+    display: flex;
+    gap: 30px;
+}
+
+.legend
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    font-family: Roboto;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: -0.013em;
+    color: #4E5A65;
+}
+
+.legend .legend-color
+{
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    border-radius: 17px;
+}
+
+.legend-color.selected
+{
+    background: #8DD7CF;
+    border: 1px solid #1AAE9E;
+}
+
+.legend-color.available
+{
+    background: #C3CFD9;
+    border: 1px solid #7B8B99;
+}
+
+.legend-color.unavailable
+{
+    background: #FBE192;
+    border: 1px solid #F7C52B;
+}
+
 form
 {
-    margin-top: 111px;
+    margin-top: 60px;
     width: 100%;
     display: flex;
     align-items: center;

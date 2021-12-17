@@ -27,6 +27,16 @@ const MovieSeatScreen = () =>
         );
     }
 
+    const Legend = ({color, message}) =>
+    {
+        return (
+            <div className='legend'>
+                <div className={`legend-color ${color}`}/>
+                <span>{message}</span>
+            </div>
+        );
+    }
+
     const displayError = (message) =>
     {
          setErrorMsg(message);
@@ -124,6 +134,11 @@ const MovieSeatScreen = () =>
             <Loading />
             }
             </ul>
+            <div className='legends-container'>
+                <Legend color="selected" message="Selecionado"/>
+                <Legend color="available" message="Disponível"/>
+                <Legend color="unavailable"  message="Indisponível"/>
+            </div>
             <form onSubmit={onInsertOrder}>
                <div className='form-group'><span>Nome do comprador:</span><input type="text" onChange={onUpdateBuyerName} placeholder='Digite seu nome...' required/></div> 
                <div className='form-group'><span>CPF do comprador</span><input type="text" onChange={onUpdateBuyerCPF} placeholder='Digite seu CPF...' required/></div> 
