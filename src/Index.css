@@ -3,6 +3,7 @@
     box-sizing: display-box;
     margin: 0;
     padding: 0;
+    font-family: Roboto;
 }
 
 body
@@ -349,6 +350,70 @@ form button
     color: #FFFFFF;
     outline: 0;
     border: 0;
+}
+
+.modal-overlay
+{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #293845;
+}
+
+.modal-inner
+{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: 1px 5px 24px 5px #000000; 
+    box-shadow: 1px 5px 24px 5px #000000;
+}
+
+.modal-content
+{
+    background-color: #FFFFFF;
+    flex: 3;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-footer
+{
+    background-color: #DFE6ED;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 10px;
+}
+
+.modal-footer button
+{
+    padding: 10px;
+    border-radius: 2px;
+    color: #FFFFFF;
+    border: 0;
+    outline: 0;
+}
+
+.modal-footer button.deny
+{
+    background-color: rgb(197, 92, 113);
+}
+
+.modal-footer button.confirm
+{
+    background-color: #E8833A;
 }
 
 /*CSS da tela de sucesso */

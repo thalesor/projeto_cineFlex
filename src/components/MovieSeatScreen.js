@@ -14,8 +14,8 @@ const MovieSeatScreen = () =>
     const [errorMsg, setErrorMsg] = useState('');
     const snackbarRef = useRef(null);
     const [buyerCPF, setBuyerCPF] = useState('');
+    const [modalData, setModalData] = useState({});
     let navigate = useNavigate();
-    
     const SeatButton = ({type, name, isAvailable}) =>
     {
         return (
@@ -35,6 +35,23 @@ const MovieSeatScreen = () =>
                 <span>{message}</span>
             </div>
         );
+    }
+
+    const Modal = ({modalData}) => 
+    {
+        return (
+            <div className='modal-overlay'>
+                <div className='modal-inner'>
+                    <div className='modal-content'>
+                        {modalData.message}
+                    </div>
+                    <div className='modal-footer'>
+                        <button onClick={()=> setModalData({})} className='deny'>Não</button>
+                        <button onClick={()=> modalData.fn()} className='confirm'>Sim</button>
+                    </div>
+                </div>
+            </div>
+        )
     }
 
     const displayError = (message) =>
@@ -105,8 +122,21 @@ const MovieSeatScreen = () =>
         let selectedSeat = newArraySeats.find(seat => seat.name === name);
         if(selectedSeat.isAvailable)
         {
-            selectedSeat.selected = selectedSeat.selected === true ? false : true;
-            setSeatsList([...newArraySeats]);
+            if(selectedSeat.selected)
+            {
+                setModalData({
+                    message: `Deseja mesmo cancelar o pedido do assento ${selectedSeat.name}?`,
+                    fn: ()=> { 
+                        selectedSeat.selected = false;
+                        setSeatsList([...newArraySeats]);
+                        setModalData({})}
+                });
+            }
+            else
+            {
+                selectedSeat.selected = true;
+                 setSeatsList([...newArraySeats]);
+            }
         }
         else
         alert('Esse assento não está disponível');
@@ -146,6 +176,7 @@ const MovieSeatScreen = () =>
             </form>
         </div>
         <Footer movieData={seatsData}/>
+        {modalData?.message ? <Modal modalData={modalData}/> : ''}
         <Snackbar
            ref={snackbarRef}
            message={errorMsg}
